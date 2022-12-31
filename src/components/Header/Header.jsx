@@ -1,24 +1,25 @@
 import React from 'react';
 import './Header.scss';
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
     <header className="header">
       <div className="container">
         <div className="header-body">
-          <a className="header-logo" href="/">
+          <Link to="/" className="header-logo">
             <img
               className="header-logo-img"
-              src="images/logo.png"
+              src="/images/logo.png"
               alt="Home page"
             />
-          </a>
-          <a
+          </Link>
+          <Link
+            to="/products/all"
             className="header-button"
-            href="/"
           >
             Каталог
-          </a>
+          </Link>
           <nav className="header-menu">
             <ul className="header-menu-list reset-list">
               <li className="header-menu-item">
@@ -34,9 +35,9 @@ function Header() {
               <li className="header-menu-item"><a className="header-menu-link" href="/">Контакты</a></li>
             </ul>
           </nav>
-          <a className="cart-link" href="/">
-            <img className="header-menu-icon" src="images/svg/cart.svg" alt="Basket" />
-          </a>
+          <Link to="/cart" className="cart-link">
+            <img className="header-menu-icon" src="/images/svg/cart.svg" alt="basket" />
+          </Link>
         </div>
       </div>
     </header>

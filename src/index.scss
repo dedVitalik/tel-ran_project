@@ -22,7 +22,25 @@ html {
   padding: 0;
 }
 
+.reset-button {
+  border: 0;
+  padding: 0;
+}
+
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 86.125rem;
+  height: 100%;
+  padding: 0 .9375rem;
+  margin: 0 auto;
+}
+
+svg {
+  fill: currentcolor;
+  vertical-align: middle;
 }

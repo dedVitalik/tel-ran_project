@@ -1,0 +1,23 @@
+.categories-item {
+  text-align: center;
+}
+
+.categories-item-img-wrapper {
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.categories-item-img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+  transition: all .2s ease-in-out;
+}
+
+.categories-item-text {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+  line-height: 130%;
+}

@@ -1,10 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchCategories } from '../../store/categories';
+import CategoryCard from '../CategoryCard/CategoryCard';
+import './CategoriesGrid.scss';
+import Loader from '../Loader/Loader';
 
-function CategoriesGrid() {
+function CategoriesGrid({ quantity }) {
   const dispatch = useDispatch();
   const { categories, loading, error } = useSelector((state) => state.categories);
+
   useEffect(() => {
     dispatch(fetchCategories());
   }, []);
@@ -14,52 +19,35 @@ function CategoriesGrid() {
   }
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
-  console.log(categories);
+
   return (
-    <div className="categories-grid">
-      {categories.map((category) => (category.id))}
-      <a className="categories-item" href="products.html">
-        <div className="categories-item-img-wrapper">
-          <img
-            className="categories-item-img"
-            src="assets/img/category-1.png"
-            alt="опис фото"
-          />
+    <div className="categories">
+      <div className="container">
+        <div className="categories-body">
+          <div className="section-title-wrapper">
+            <h2 className="section-title">Категории</h2>
+            <Link
+              to="/categories"
+              className="section-title-button"
+            >
+              Все категории
+            </Link>
+          </div>
+          <div className="categories-grid">
+            {categories
+              .slice(0, quantity)
+              .map((category) => (
+                <CategoryCard
+                  key={category.id}
+                  id={category.id}
+                  title={category.title}
+                />
+              ))}
+          </div>
         </div>
-        <div className="categories-item-text">Удобрения</div>
-      </a>
-      <a className="categories-item" href="products.html">
-        <div className="categories-item-img-wrapper">
-          <img
-            className="categories-item-img"
-            src="assets/img/category-2.png"
-            alt="опис фото"
-          />
-        </div>
-        <div className="categories-item-text">Средства Защиты и септики</div>
-      </a>
-      <a className="categories-item" href="products.html">
-        <div className="categories-item-img-wrapper">
-          <img
-            className="categories-item-img"
-            src="assets/img/category-3.png"
-            alt="опис фото"
-          />
-        </div>
-        <div className="categories-item-text">Посадочный материал</div>
-      </a>
-      <a className="categories-item" href="products.html">
-        <div className="categories-item-img-wrapper">
-          <img
-            className="categories-item-img"
-            src="assets/img/category-4.png"
-            alt="опис фото"
-          />
-        </div>
-        <div className="categories-item-text">Инструменты и Инвентарь</div>
-      </a>
+      </div>
     </div>
   );
 }

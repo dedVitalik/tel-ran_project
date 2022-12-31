@@ -28,11 +28,11 @@ const categoriesSlice = createSlice({
     },
     [fetchCategories.fulfilled]: (state, action) => {
       state.loading = false;
-      state.goods = action.payload;
+      state.categories = action.payload;
     },
     [fetchCategories.rejected]: (state) => {
       state.loading = false;
-      state.error = 'Error loading goods';
+      state.error = 'Error loading categories';
     },
   },
 });

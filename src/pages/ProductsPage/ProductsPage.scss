@@ -1,0 +1,91 @@
+.page-title {
+  font-size: 2.5rem;
+  margin-bottom: 5rem;
+}
+
+.filter {
+  display: flex;
+  margin-bottom: 2.8125rem;
+}
+
+.filter-item {
+  align-items: center;
+  display: flex;
+  margin-bottom: 0;
+  margin-right: 2.5rem;
+}
+
+.filter-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+  line-height: 130%;
+  margin-right: 0.9375rem;
+}
+
+.filter-range {
+  display: flex;
+  margin-right: 0.9375rem;
+
+  &>* {
+    margin-right: 0.9375rem;
+  }
+
+  & input {
+    border: 1px solid #000;
+    border-radius: 0.4375rem;
+    height: 2.5rem;
+    max-width: 6.4375rem;
+    padding: 0 0.8125rem;
+  }
+}
+
+.filter-checkbox-wrapper {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+}
+
+.filter-checkbox-fake {
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 0.4375rem;
+  display: flex;
+  height: 2.5rem;
+  justify-content: center;
+  width: 2.5rem;
+
+  &:before {
+    background-color: #000;
+    border-radius: 4px;
+    content: "";
+    display: block;
+    height: 1.5625rem;
+    transform: scale(0);
+    transition: all .2s ease-in-out;
+    width: 1.5625rem;
+  }
+}
+
+.filter-checkbox-real:checked~.filter-checkbox-fake:before {
+  transform: none;
+}
+
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2.75rem 2.1875rem;
+
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

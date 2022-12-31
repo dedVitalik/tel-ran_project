@@ -9,10 +9,20 @@ const initialState = {
 
 export const fetchGoods = createAsyncThunk(
   'goods/fetchGoods',
-  async () => {
-    const response = await fetch('http://localhost:3333/categories/all');
+  async (goodsCat) => {
+    const response = goodsCat === 'all'
+      ? await fetch(`http://localhost:3333/products/${goodsCat}`)
+      : await fetch(`http://localhost:3333/categories/${goodsCat}`);
     const data = await response.json();
-    return data;
+    const dataWithoutStrings = data.map((item) => {
+      const getNumFromStr = (str) => Number(str.replace(/\D/g, ''));
+      const price = typeof item.price === 'string' ? getNumFromStr(item.price) : item.price;
+      // eslint-disable-next-line camelcase
+      const discont_price = typeof item.discont_price === 'string' ? getNumFromStr(item.discont_price) : item.discont_price;
+      // eslint-disable-next-line camelcase
+      return { ...item, price, discont_price };
+    });
+    return dataWithoutStrings;
   },
 );
 

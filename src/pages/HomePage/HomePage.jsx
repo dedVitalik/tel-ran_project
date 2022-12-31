@@ -1,28 +1,26 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { BallTriangle } from 'react-loader-spinner';
-import { fetchGoods } from '../../store/goods';
+import React from 'react';
+// import { fetchGoods } from '../../store/goods';
+// import { fetchCategories } from '../../store/categories';
 // eslint-disable-next-line import/no-unresolved
 import './HomePage.scss';
 import CategoriesGrid from '../../components/CategoriesGrid/CategoriesGrid';
 
 function HomePage() {
-  const dispatch = useDispatch();
-  const { goods, loading, error } = useSelector((state) => state.goods);
+  // const dispatch = useDispatch();
+  // const { categories, loading, error } = useSelector((state) => state.categories);
+  //
+  // useEffect(() => {
+  //   dispatch(fetchCategories());
+  // }, []);
+  //
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
+  //
+  // if (error) {
+  //   return <div>{error}</div>;
+  // }
 
-  useEffect(() => {
-    dispatch(fetchGoods());
-  }, []);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>{error}</div>;
-  }
-
-  console.log(goods);
   return (
     <div>
       <div className="showcase">
@@ -42,37 +40,11 @@ function HomePage() {
           </div>
         </div>
         <div className="showcase-img-wrapper">
-          <div className="showcase-img"><img src="./images/showcase-img.png" alt="" /></div>
+          <div className="showcase-img"><img src="/images/showcase-img.png" alt="" /></div>
         </div>
       </div>
 
-      <BallTriangle
-        height={100}
-        width={100}
-        radius={5}
-        color="#4fa94d"
-        ariaLabel="ball-triangle-loading"
-        wrapperClass={{}}
-        wrapperStyle=""
-        visible
-      />
-
-      <div className="categories" id="categories">
-        <div className="container">
-          <div className="categories-body">
-            <div className="section-title-wrapper">
-              <h2 className="section-title">Категории</h2>
-              <a
-                className="section-title-button"
-                href="categories.html"
-              >
-                Все категории
-              </a>
-            </div>
-            <CategoriesGrid />
-          </div>
-        </div>
-      </div>
+      <CategoriesGrid quantity={4} />
 
     </div>
   );
