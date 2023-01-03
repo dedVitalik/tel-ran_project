@@ -1,0 +1,83 @@
+.promo {
+  background-image: linear-gradient(-135deg,#393,#006300);
+  color: #fff;
+  margin-bottom: 3.0625rem;
+  padding: 1.6875rem 0;
+
+  &-body {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-img {
+    display: block;
+    height: 100%;
+    margin-left: 4.0625rem;
+    margin-right: 1.875rem;
+  }
+
+  &-info {
+    max-width: 35.9375rem;
+  }
+
+  &-title {
+    font-weight: 700;
+    margin-bottom: 2.875rem;
+
+    & span {
+      display: block;
+      letter-spacing: .03em;
+      line-height: 120%;
+
+      &:first-child {
+        font-size: 5.625rem;
+      }
+
+      &:last-child {
+        font-size: 3.75rem;
+      }
+    }
+  }
+
+  &-form {
+    max-width: 29.5625rem;
+
+    &-input {
+      margin-bottom: 1.875rem;
+
+      & input {
+        background-color: #fff;
+        border: 2px solid #fff;
+        border-radius: 1.5625rem;
+        color: #000;
+        display: block;
+        font-size: 1.125rem;
+        font-weight: 600;
+        outline: 0;
+        padding: 0 3.125rem;
+        width: 100%;
+        height: 4.6875rem;
+      }
+    }
+
+    &-button {
+      align-items: center;
+      border: 2px solid #fff;
+      border-radius: 1.5625rem;
+      color: inherit;
+      cursor: pointer;
+      display: flex;
+      font-weight: 700;
+      justify-content: center;
+      letter-spacing: .03em;
+      line-height: 120%;
+      width: 100%;
+      transition: all .2s ease-in-out;
+      font-size: 1.75rem;
+      height: 4.6875rem;
+    }
+  }
+
+}
+

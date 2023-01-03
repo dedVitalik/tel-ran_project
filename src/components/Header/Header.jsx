@@ -1,8 +1,10 @@
 import React from 'react';
 import './Header.scss';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 function Header() {
+  const getClassList = (activity) => (activity ? 'header-menu-link active' : 'header-menu-link');
+
   return (
     <header className="header">
       <div className="container">
@@ -23,15 +25,22 @@ function Header() {
           <nav className="header-menu">
             <ul className="header-menu-list reset-list">
               <li className="header-menu-item">
-                <a
-                  className="header-menu-link active"
-                  href="/"
+                <NavLink
+                  className={({ isActive }) => getClassList(isActive)}
+                  to="/categories/all"
                 >
                   Категории
-                </a>
+                </NavLink>
               </li>
-              <li className="header-menu-item"><a className="header-menu-link" href="/">Купон</a></li>
-              <li className="header-menu-item"><a className="header-menu-link" href="/">Акции</a></li>
+              <li className="header-menu-item"><Link to="/" className="header-menu-link">Купон</Link></li>
+              <li className="header-menu-item">
+                <NavLink
+                  to="/products/discounted"
+                  className={({ isActive }) => getClassList(isActive)}
+                >
+                  Акции
+                </NavLink>
+              </li>
               <li className="header-menu-item"><a className="header-menu-link" href="/">Контакты</a></li>
             </ul>
           </nav>

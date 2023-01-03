@@ -3,15 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const cartSlice = createSlice({
   name: 'cart',
   initialState: {
-    cart: [{
-      id: 1, title: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to ma', price: 4500, discont_price: 4000, quantity: 2,
-    },
-    {
-      id: 2, title: 'Good2', price: 6500, discont_price: 4000, quantity: 2,
-    },
-    {
-      id: 3, title: 'Good2', price: 8500, discont_price: 4000, quantity: 2,
-    }],
+    cart: [],
   },
   reducers: {
     addToCart: (state, action) => {

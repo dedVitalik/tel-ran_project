@@ -29,7 +29,7 @@ function CategoriesGrid({ quantity }) {
           <div className="section-title-wrapper">
             <h2 className="section-title">Категории</h2>
             <Link
-              to="/categories"
+              to="/categories/all"
               className="section-title-button"
             >
               Все категории

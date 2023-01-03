@@ -3,4 +3,18 @@ const getDiscountSize = (fullPrice, discountedPrice) => {
   return discountSize;
 };
 
+export const sortGoods = (arrOfGoods, sortMethod = 'id') => {
+  if (sortMethod === 'price') {
+    return [...arrOfGoods]
+      .sort((a, b) => a.price - b.price);
+  } if (sortMethod === 'title') {
+    return [...arrOfGoods]
+      .sort((a, b) => a.title.localeCompare(b.title));
+  } if (sortMethod === 'id') {
+    return [...arrOfGoods]
+      .sort((a, b) => a.id - b.id);
+  }
+  return arrOfGoods;
+};
+
 export default getDiscountSize;

@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import './OneProductPage.scss';
-import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchGood } from '../../store/good';
-import Loader from '../../components/Loader/Loader';
+import Loader from '../Loader/Loader';
 import getDiscountSize from '../../utils/utils';
 import { addToCart } from '../../store/cart';
+import './OneProduct.scss';
 
-function OneProductPage() {
+function OneProduct({ productId }) {
   const dispatch = useDispatch();
-  const { productId } = useParams();
   const { good, error, loading } = useSelector((state) => state.good);
   const [currentGood, setCurrentGood] = useState(null);
 
@@ -81,4 +79,4 @@ function OneProductPage() {
   );
 }
 
-export default OneProductPage;
+export default OneProduct;
